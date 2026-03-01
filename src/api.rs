@@ -161,7 +161,8 @@ impl PpdChoice<'_> {
         if self.choice() == default {
             Ok(None)
         } else {
-            Ok(Some(default.to_str()?.parse()?))
+            let s = self.choice().to_str()?;
+            Ok(Some(s.parse()?))
         }
     }
 }
